@@ -2,6 +2,9 @@
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
+image1: http://placekitten.com/1024/768
+image2:  http://placekitten.com/1280/960
+image3:  http://placekitten.com/1440/1080
 ---
 
 This is my first post on my new fake blog! How exciting!

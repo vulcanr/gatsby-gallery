@@ -5,12 +5,13 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import Gallery from "../components/gallery"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-
+  
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -37,6 +38,22 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
           </p>
         </header>
+        <Gallery galleryImages={
+          [
+            {
+              original: post.frontmatter.image1,
+              thumbnail: post.frontmatter.image1,
+            },
+            {
+              original: post.frontmatter.image2,
+              thumbnail: post.frontmatter.image2,
+            },
+            {
+              original: post.frontmatter.image3,
+              thumbnail: post.frontmatter.image3,
+            },
+          ]
+        }/>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -95,6 +112,9 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image1
+        image2
+        image3
       }
     }
   }
